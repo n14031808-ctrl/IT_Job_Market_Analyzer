@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IT Job Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>IT Job Analyzer</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/salary">Salary</a>
+        <a href="/skills">Skills</a>
+        <a href="/charts">Charts</a>
+    </div>
+</nav>
+
+<section class="container">
+    <h1>IT Job Details</h1>
+    <p>Explore IT Job Opportunities</p>
+
+    <table>
+        <tr>
+            <th>Job Role</th>
+            <th>Company</th>
+            <th>Required Skills</th>
+            <th>Salary (LPA)</th>
+        </tr>
+
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.Job_Role }}</td>
+            <td>{{ job.Company }}</td>
+            <td>{{ job.Skills }}</td>
+            <td>{{ job.Salary_LPA }} LPA</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p class="note">Note: These are illustrative sample records.</p>
+</section>
+
+<footer>
+    <p>© 2026 IT Job Market Analyzer</p>
+</footer>
+
+</body>
+</html>
