@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>IT Job Analyzer</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/salary">Salary</a>
+        <a href="/skills">Skills</a>
+        <a href="/charts">Charts</a>
+    </div>
+</nav>
+
+<section class="container">
+    <h1>IT Job Salary Comparison</h1>
+    <h2>Salary Analysis Chart</h2>
+
+    <img
+        src="{{ url_for('static', filename='salary_chart.png') }}"
+        alt="IT Job Salary Comparison Chart"
+        class="chart">
+
+    <p class="note">Note: This chart uses illustrative sample records.</p>
+</section>
+
+<footer>
+    <p>© 2026 IT Job Market Analyzer</p>
+</footer>
+
+</body>
+</html>

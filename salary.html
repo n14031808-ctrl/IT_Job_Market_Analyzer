@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>IT Job Analyzer</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/jobs">Jobs</a>
+        <a href="/salary">Salary</a>
+        <a href="/skills">Skills</a>
+        <a href="/charts">Charts</a>
+    </div>
+</nav>
+
+<section class="container">
+    <h1>Salary Analysis</h1>
+    <p>Explore IT Job Salary Details</p>
+
+    <table>
+        <tr>
+            <th>Job Role</th>
+            <th>Salary (LPA)</th>
+        </tr>
+
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.Job_Role }}</td>
+            <td>{{ job.Salary_LPA }} LPA</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Salary Statistics</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Average Salary</h3>
+            <p>{{ "%.2f"|format((jobs|sum(attribute='Salary_LPA') / jobs|length)) }} LPA</p>
+        </div>
+        <div class="card">
+            <h3>Highest Salary</h3>
+            <p>{{ jobs|max(attribute='Salary_LPA') if false else jobs|map(attribute='Salary_LPA')|max }} LPA</p>
+        </div>
+    </div>
+
+    <p class="note">Note: These are illustrative sample records.</p>
+</section>
+
+<footer>
+    <p>© 2026 IT Job Market Analyzer</p>
+</footer>
+
+</body>
+</html>
